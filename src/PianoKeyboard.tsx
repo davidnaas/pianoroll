@@ -16,7 +16,6 @@ export const PianoKeyboard = ({ keyRange, setActiveNote }: IPianoKeyboardProps) 
         overflow: "scroll"
       }}
     >
-
       {Object.keys(MIDI_NOTE_NUMBER_TO_NOTE_NAME).map((noteNumber) => {
         const noteNumberAsNumber = parseInt(noteNumber);
         return (

@@ -1,5 +1,9 @@
 import { KeyRange, MidiNoteNumberToNoteNameMap } from "./types";
 
+/*
+  Generates all 128 possible midi notes and their note name equivalent
+  (including the relevant octave number)
+*/
 function generateMidiNoteNumberToNoteNameMap(): MidiNoteNumberToNoteNameMap {
   const basicMidiNoteNumberToNoteNameMap: MidiNoteNumberToNoteNameMap = {
     0: "C",
@@ -19,6 +23,10 @@ function generateMidiNoteNumberToNoteNameMap(): MidiNoteNumberToNoteNameMap {
   for (let index = 0; index <= 127; index++) {
     const noteNameWithoutOctave = basicMidiNoteNumberToNoteNameMap[index % 12];
     const octave = Math.floor(index / 12);
+    /*
+      There was conflicting info on the web here but most sources mentioned
+      that the lowest midi octave is equivalent to -1 (C-1, C#-1 etc.)
+    */
     const noteNameWithOctave = noteNameWithoutOctave + (octave - 1);
     fullMidiNoteNumberToNoteNameMap[index] = noteNameWithOctave;
   }
